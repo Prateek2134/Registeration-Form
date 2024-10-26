@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #b82020;
+      background-color: #f9f9f9; /* Added background color for visibility */
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .social-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .social-buttons button {
+      width: 48%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .google {
+      background-color: #DB4437;
+    }
+    .facebook {
+      background-color: #3B5998;
+    }
+    .twitter {
+      background-color: #00ACEE;
+    }
+  </style>
+  <script>
+    function handleSocialLogin(platform) {
+      let url = '';
+
+      switch (platform) {
+        case 'google':
+          url = 'https://accounts.google.com/signup'; // Redirect to Google sign-up
+          break;
+        case 'facebook':
+          url = 'https://www.facebook.com/r.php'; // Redirect to Facebook sign-up
+          break;
+        case 'twitter':
+          url = 'https://twitter.com/i/flow/signup'; // Redirect to Twitter sign-up
+          break;
+        default:
+          return;
+      }
+
+      // Open the URL in a new tab
+      window.open(url, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Registration Form</h2>
+    <form>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <div class="social-buttons">
+      <button class="google" onclick="handleSocialLogin('google')">Register with Google</button>
+      <button class="facebook" onclick="handleSocialLogin('facebook')">Register with Facebook</button>
+      <button class="twitter" onclick="handleSocialLogin('twitter')">Register with Twitter</button>
+    </div>
+  </div>
+</body>
+</html>
